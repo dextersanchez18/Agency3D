@@ -3,67 +3,278 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutocodeAI</title>
-    <style>
-        :root {
-            --bg-color: #121212;
-            --text-color: #e0e0e0;
-            --text-secondary: #a0a0a0;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 1rem;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 600px;
-            width: 100%;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        p {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.5rem;
-            }
-            p {
-                font-size: 1rem;
-            }
-            .container {
-                padding: 1rem;
-            }
-        }
-    </style>
+    <title>Nova Motion — Digital 3D & Motion Design Agency</title>
+    <meta name="description" content="Nova Motion is a premier digital agency specializing in 3D visual design, motion graphics, and interactive web experiences. We turn ideas into motion.">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <main class="container">
-        <h1>Hello from AutocodeAI</h1>
-        <p>Welcome to our autonomous coding platform. Building simple, fast, and responsive web applications.</p>
+    <!-- Background Canvas for Three.js 3D visual -->
+    <canvas id="webgl-canvas"></canvas>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="brand-logo">Nova<span class="highlight">Motion</span></a>
+            <button class="nav-toggle" aria-label="Toggle navigation menu" id="navToggle">
+                <span class="hamburger"></span>
+            </button>
+            <nav class="nav-links" id="navLinks">
+                <a href="#hero" class="nav-link active">Home</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link nav-cta">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section id="hero" class="section hero-section">
+            <div class="container hero-content">
+                <span class="badge">Digital 3D & Motion Studio</span>
+                <h1 class="hero-title">We turn ideas into <span class="gradient-text">motion.</span></h1>
+                <p class="hero-description">
+                    We craft immersive 3D digital experiences, high-impact motion graphics, and interactive web applications that elevate ambitious brands.
+                </p>
+                <div class="hero-actions">
+                    <a href="#portfolio" class="btn btn-primary">Explore Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <span class="mouse">
+                    <span class="wheel"></span>
+                </span>
+                <span class="label">Scroll to discover</span>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section services-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">What We Do</span>
+                    <h2 class="section-title">Our Services</h2>
+                    <p class="section-desc">Pushing the boundaries of web interactivity and visual storytelling.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="card-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                        </div>
+                        <h3>3D & Spatial Design</h3>
+                        <p>Interactive web 3D models, procedural shaders, real-time lighting, and custom WebGL engines built for fluid performance across devices.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="card-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        </div>
+                        <h3>Motion Graphics & VFX</h3>
+                        <p>High-energy promotional animations, kinetic typography, particle physics, and cinematic keyframe motion that captures attention.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="card-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                        </div>
+                        <h3>Interactive Web Development</h3>
+                        <p>Responsive, lightning-fast frontend websites optimized for smooth 60fps frame rates, fluid scroll triggers, and mobile devices.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="card-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+                        </div>
+                        <h3>Brand Systems & CGI</h3>
+                        <p>Future-focused brand identities, 3D render collateral, abstract generative design, and cohesive motion guidelines for modern agencies.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="section portfolio-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Selected Work</span>
+                    <h2 class="section-title">Featured Portfolio</h2>
+                    <p class="section-desc">A showcase of interactive digital projects and motion visual design.</p>
+                </div>
+                <div class="portfolio-grid">
+                    <article class="portfolio-card">
+                        <div class="portfolio-visual glow-cyan">
+                            <div class="portfolio-badge">3D & WebGL</div>
+                            <div class="visual-shape sphere-shape"></div>
+                        </div>
+                        <div class="portfolio-info">
+                            <h3>Hyperion 3D Engine</h3>
+                            <p>Real-time interactive product showcase rendered with custom WebGL lighting shaders.</p>
+                            <div class="portfolio-tags">
+                                <span>Three.js</span>
+                                <span>GLSL Shaders</span>
+                                <span>UI/UX</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="portfolio-card">
+                        <div class="portfolio-visual glow-purple">
+                            <div class="portfolio-badge">Motion Graphics</div>
+                            <div class="visual-shape cube-shape"></div>
+                        </div>
+                        <div class="portfolio-info">
+                            <h3>CyberSphere Brand Launch</h3>
+                            <p>Cinematic promotional motion campaign featuring kinetic typography and procedural geometry.</p>
+                            <div class="portfolio-tags">
+                                <span>GSAP</span>
+                                <span>Motion VFX</span>
+                                <span>Branding</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="portfolio-card">
+                        <div class="portfolio-visual glow-magenta">
+                            <div class="portfolio-badge">Interactive Web</div>
+                            <div class="visual-shape torus-shape"></div>
+                        </div>
+                        <div class="portfolio-info">
+                            <h3>Nebula Spatial UI</h3>
+                            <p>Next-generation web interface incorporating responsive 3D depth navigation and physics particle fields.</p>
+                            <div class="portfolio-tags">
+                                <span>Interactive 3D</span>
+                                <span>Frontend</span>
+                                <span>Design System</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="portfolio-card">
+                        <div class="portfolio-visual glow-cyan">
+                            <div class="portfolio-badge">CGI & Concept</div>
+                            <div class="visual-shape pyramid-shape"></div>
+                        </div>
+                        <div class="portfolio-info">
+                            <h3>Aether Kinetic Sculptures</h3>
+                            <p>Generative 3D sculpture gallery with interactive camera light manipulations.</p>
+                            <div class="portfolio-tags">
+                                <span>Generative 3D</span>
+                                <span>Lighting</span>
+                                <span>Creative Coding</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section about-section">
+            <div class="container">
+                <div class="about-wrapper">
+                    <div class="about-content">
+                        <span class="section-subtitle">Who We Are</span>
+                        <h2 class="section-title">About Nova Motion</h2>
+                        <p class="about-text">
+                            At Nova Motion, we bridge the gap between imagination and digital reality. We are a boutique studio of creative developers, 3D artists, and motion designers passionate about crafting memorable digital moments.
+                        </p>
+                        <p class="about-text">
+                            We believe that motion is not just an aesthetic add-on — it is a core language of modern interaction. By blending light, geometry, and real-time graphics, we build experiences that feel alive, responsive, and unmistakably distinct.
+                        </p>
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">50+</span>
+                                <span class="stat-label">3D Projects Delivered</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">60 FPS</span>
+                                <span class="stat-label">Performance Target</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">100%</span>
+                                <span class="stat-label">Mobile Optimized</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <span class="section-subtitle">Let's Connect</span>
+                        <h2 class="section-title">Ready to bring your project to life?</h2>
+                        <p class="contact-desc">
+                            Whether you need a full 3D interactive web experience, motion branding, or visual design consultation, we'd love to collaborate.
+                        </p>
+                        <div class="contact-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">✉</span>
+                                <div>
+                                    <strong>Email Us</strong>
+                                    <p>hello@novamotion.studio</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">📍</span>
+                                <div>
+                                    <strong>Studio Location</strong>
+                                    <p>Digital-First Studio — Global Reach</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form class="contact-form" id="contactForm" onsubmit="return false;">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="Alex Morgan" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="alex@company.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Interested Service</label>
+                            <select id="service" name="service">
+                                <option value="3d-design">3D & Spatial Design</option>
+                                <option value="motion-graphics">Motion Graphics & VFX</option>
+                                <option value="web-development">Interactive Web Development</option>
+                                <option value="brand-identity">Brand Systems & CGI</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Project Overview</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Tell us about your project vision, timeline, and goals..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                        <p class="form-status" id="formStatus" aria-live="polite"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; <span id="currentYear"></span> Nova Motion Studio. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#hero">Back to top ↑</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CDN Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha384-CI3ELBVUz9XQO+97x6nwMDPosPR5XvsxW2ua7N1Xeygeh1IxtgqtCkGfQY9WWdHu" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
 </body>
 </html>
